@@ -1,6 +1,6 @@
 <?php
 
-require_once 'IPigLatinDialect.php';
+namespace App;
 
 class PigLatinGeneralDialect implements IPigLatinDialect
 {

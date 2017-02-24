@@ -1,6 +1,6 @@
 <?php
 
-require 'IPigLatinDialect.php';
+namespace App;
 
 class PigLatinTranslator
 {
@@ -31,7 +31,7 @@ class PigLatinTranslator
 	 * Funkce se pokusí nalézt pozici ve slově, kde by se slovo mělo rozdělit
 	 * @param string Slovo, které se má rozdělit
 	 * @return int Pozice znaku, který jako první patří do druhé poloviny slova, jinak -1, pokud se slovo nedělí
-	 * @throws RuntimeException
+	 * @throws \RuntimeException
 	 */
 	private function split($what)
 	{
@@ -75,7 +75,7 @@ class PigLatinTranslator
 					return $i - 1;
 
 				default:
-					throw new RuntimeException('Bad state');
+					throw new \RuntimeException('Bad state');
 			}
 			$i++;
 			if ($i == strlen($what)) return $i; // slovo dosáhlo konce, byly pouze souhlásky
@@ -87,13 +87,13 @@ class PigLatinTranslator
 	 * Přeloží vstup do pig-latin
 	 * @param string $what Vstup k přeložení
 	 * @return string Výsledek v pig-latin
-	 * @throws RuntimeException
+	 * @throws \RuntimeException
 	 */
 	public function into($what)
 	{
 		if ($this->dialect === null)
 		{
-			throw new RuntimeException('Dialect has not been set.');
+			throw new \RuntimeException('Dialect has not been set.');
 		}
 
 		if (($split = $this->split($what)) === -1)

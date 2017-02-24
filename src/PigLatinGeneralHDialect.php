@@ -1,6 +1,6 @@
 <?php
 
-require_once 'PigLatinGeneralHDialect.php';
+namespace App;
 
 class PigLatinGeneralHDialect extends PigLatinGeneralDialect
 {
